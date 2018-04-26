@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c7cd1a6-f98a-4e0e-bde2-185403195899">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="desde" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="hasta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT pr.nomb_prov, p.nomb_piez, b.cant, b.fech_comp from bodega as b INNER JOIN piezas as p on b.codi_piez=p.codi_piez INNER JOIN proveedores as pr on b.codi_prov=pr.codi_prov WHERE b.fech_comp BETWEEN $P{desde} AND $P{hasta}]]>
+	</queryString>
+	<field name="nomb_prov" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomb_piez" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cant" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fech_comp" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="0" width="294" height="48" uuid="9da198b7-7d39-46bc-9cfa-a06b9768f0f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Rockwell Extra Bold" size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Examen POO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="76" y="0" width="100" height="20" uuid="5c66ef30-5a4d-41c5-9b0f-4820dd67d334"/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="0" width="100" height="20" uuid="de14781c-f5c0-4c73-9355-a0e672149a11"/>
+				<text><![CDATA[Pieza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="100" height="20" uuid="feecedf0-094f-4332-a8ac-20c2be159d9f"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="100" height="20" uuid="60c08622-5fe1-4e5a-915d-8bed601c838b"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="76" y="0" width="100" height="20" uuid="d9980ef2-cb8f-4939-8ad4-95e01d5d5e2d"/>
+				<textFieldExpression><![CDATA[$F{nomb_prov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="0" width="100" height="20" uuid="2e79b04c-5792-4e03-8caa-d44584f1fd3c"/>
+				<textFieldExpression><![CDATA[$F{nomb_piez}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="100" height="20" uuid="6891eabd-83a9-4ad0-8aff-9cd8e0927ab2"/>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="376" y="0" width="100" height="20" uuid="ce2d3773-95a7-4a5b-9e2b-66f8a77c25e6"/>
+				<textFieldExpression><![CDATA[$F{fech_comp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
