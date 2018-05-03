@@ -88,7 +88,7 @@
                                             <label for="fechaP">Fecha Prestamo</label>
                                             <input disabled type="text" class="form-control" name="fechaP" id="fechaP" value="${fechaP}"/>
                                         </div>
-                                        <input type="submit" class="btn btn-default" name="btonPres" value="<%=nombBton%>"/>
+                                        <input type="submit" class="btn btn-default" name="btonPres" value="<%= nombBton%>"/>
                                     </form>
                                 </div>
                             </div>
@@ -175,8 +175,8 @@
                                             </display:column>
                                             <display:column property="codi_usua" title="Usuario" sortable="true"/>
                                             <display:column property="codi_libr" title="Libro" sortable="true"/>
-                                            <display:column property="fech_pres" title="Fecha Prestamo" sortable="true"/>
-                                            <display:column property="fech_devo" title="Fecha Devolucion" sortable="true"/>
+                                            <display:column property="fech_pres" title="Fecha Prestamo" sortable="true" format="{0,date,dd/MM/yyyy HH:mm}"/>
+                                            <display:column property="fech_devo" title="Fecha Devolucion" sortable="true" format="{0,date,dd/MM/yyyy HH:mm}"/>
                                         </display:table>
                                         <input type="submit" class="btn btn-success" name="btonDese" value="Consultar"/>
                                     </form>

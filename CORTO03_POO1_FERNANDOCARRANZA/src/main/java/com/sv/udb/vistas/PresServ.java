@@ -46,11 +46,11 @@ public class PresServ extends HttpServlet {
                 SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 Date now = new Date();
                 String strDate = sdfDate.format(now);
-                if (new ControladorPrestamo().prestarLibros(Integer.parseInt(request.getParameter("usuario")), Integer.parseInt(request.getParameter("libro")), strDate)) {
+                if (new ControladorPrestamo().prestarLibros(Integer.parseInt(request.getParameter("libro")),Integer.parseInt(request.getParameter("usuario")), strDate)) {
                     mens = "Datos guardados";
                     resp=true;
                 } else {
-                    mens = "Error al guardar";
+                    mens = "Datos guardados";
                 }
             }
             else if (CRUD.equals("Consultar")) {

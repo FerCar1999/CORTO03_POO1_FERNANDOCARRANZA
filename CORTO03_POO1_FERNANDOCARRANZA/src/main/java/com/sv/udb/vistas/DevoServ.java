@@ -71,11 +71,16 @@ public class DevoServ extends HttpServlet {
                     String fechaDe = null;
                     try {
                         fechaP = sdfDate.parse(obje.getFech_pres());
-                        fechaD = sdfDate.parse(obje.getFech_devo());
+                        
                         fechaPr = sdfDateX.format(fechaP);
-                        fechaDe = sdfDateX.format(fechaD);
+                        
                     } catch (Exception e) {
                         e.printStackTrace();
+                    }
+                    try {
+                        fechaD = sdfDate.parse(obje.getFech_devo());
+                        fechaDe = sdfDateX.format(fechaD);
+                    } catch (Exception e) {
                     }
                     request.setAttribute("fechaPDevo", fechaPr);
                     request.setAttribute("fechaDDevo", fechaDe);
